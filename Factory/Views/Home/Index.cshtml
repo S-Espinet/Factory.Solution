@@ -5,16 +5,11 @@
 <div class="jumbotron">
   <h1>Dr. SillyStringz's Factory</h1>
 </div>
-@{
-  Layout = "_Layout";
-}
 
-@using Factory.Models;
+@* @using Factory.Models; *@
 @* @model List<Factory.Models.Engineer>; *@
 
-<div class="jumbotron">
-  <h1>Engineers</h1>
-</div>
+@* <h1>Engineers</h1>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -27,14 +22,10 @@
     <li>@join.Engineer.EngineerName</li>
   }
 </ul>
-<p>@Html.ActionLink("Add new student", "Create")</p>
 <hr />
 
 
-
-<div class="jumbotron">
-  <h1>Machines</h1>
-</div>
+<h1>Machines</h1>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -44,9 +35,9 @@
 <ul>
 @foreach (var join in Model.JoinEntities)
 {
-  <li>@Html.ActionLink($"{machine.MachineName}")</li>
+  <li>@join.Machine.MachineName</li>
 }
-</ul>
+</ul> *@
 
 <button class="btn-warning">@Html.ActionLink("Home", "Index", "Home")</button>
 <button class="btn-warning">@Html.ActionLink("See all Engineers", "Index", "Engineers")</button>

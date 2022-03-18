@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace TemplateDatabaseBasic.Migrations
+namespace Factory.Migrations
 {
     [DbContext(typeof(FactoryContext))]
     partial class FactoryContextModelSnapshot : ModelSnapshot
