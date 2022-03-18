@@ -45,6 +45,17 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
+    public ActionResult AddEngineer(Machine machine, int EngineerId)
+    {
+      if (EngineerId != 0)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
     public ActionResult DeleteEngineer(int joinEntityId)
     {
       var joinEntryM = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinEntityId);
