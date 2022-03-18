@@ -43,5 +43,14 @@ namespace Factory.Controllers
         .FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
+
+    [HttpPost]
+    public ActionResult DeleteEngineer(int joinEntityId)
+    {
+      var joinEntryM = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinEntityId);
+      _db.EngineerMachine.Remove(joinEntryM);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
