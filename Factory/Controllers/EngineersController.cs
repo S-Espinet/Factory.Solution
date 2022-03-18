@@ -55,13 +55,31 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Edit (Engineer engineer)//might need to also pass in int MachineId
     {
-      // if (MachineId != 0) 
-      // {
-      //   _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
-      // }
-        _db.Entry(engineer).State = EntityState.Modified;
+    // if (MachineId != 0) 
+    // {
+    //   _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
+    // }
+      _db.Entry(engineer).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult AddCategory (int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer=> engineer.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MatchinesId", "Machine");
+      return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult AddCategory(Engineer engineer, int MachineId)
+    {
+      if (MachineId != 0)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
         _db.SaveChanges();
-        return RedirectToAction("Index");
+      }
+      return RedirectToAction("Index");
     }
   }
 }
