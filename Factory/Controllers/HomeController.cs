@@ -9,6 +9,7 @@ namespace Factory.Controllers
     public ActionResult Index()
     {
       ViewBag.PageTitle = "Dr. SillyStringz's Factory";
+      //more viewbag items (engineers and machines) viewbag.engineerslist = _db.engineers.tolist
       return View();
     }
   }

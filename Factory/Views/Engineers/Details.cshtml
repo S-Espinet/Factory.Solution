@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Item
+@model Factory.Models.Engineer
 
 <h2>Engineer Details</h2>
 <hr />
@@ -29,7 +29,7 @@ else
   <br />
   <h4>HireDate
     @Html.HiddenFor(model => model.EngineerId)
-    @Html.DisplayFor(model => model.DueDate.Month)/@Html.DisplayFor(model => model.DueDate.Day)/@Html.DisplayFor(model => model.DueDate.Year)</h4>
+    @Html.DisplayFor(model => model.HireDate.Month)/@Html.DisplayFor(model => model.HireDate.Day)/@Html.DisplayFor(model => model.HireDate.Year)</h4>
 }
 <p>@Html.ActionLink("Back to Engineers List", "Index")</p>
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>

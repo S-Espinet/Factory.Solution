@@ -26,18 +26,17 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Engineer engineer, int MachineId)
+    public ActionResult Create(Engineer engineer)
     {
       _db.Engineers.Add(engineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-        public ActionResult Details(int id)
+    public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
         .Include(engineer => engineer.JoinEntities)
