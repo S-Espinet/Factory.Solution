@@ -48,17 +48,12 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      // ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View(thisEngineer);
     }
 
     [HttpPost]
-    public ActionResult Edit (Engineer engineer)//might need to also pass in int MachineId
+    public ActionResult Edit (Engineer engineer)
     {
-    // if (MachineId != 0) 
-    // {
-    //   _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
-    // }
       _db.Entry(engineer).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
