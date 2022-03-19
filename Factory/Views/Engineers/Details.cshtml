@@ -6,11 +6,10 @@
 
 <h2>Engineer Details</h2>
 <hr />
-<h3>Name
-@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</h3>
-<h4>HireDate
+<h3>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</h3>
+<h3>Date of Hire:
 @Html.HiddenFor(model => model.EngineerId)
-@Html.DisplayFor(model => model.HireDate.Month)/@Html.DisplayFor(model => model.HireDate.Day)/@Html.DisplayFor(model => model.HireDate.Year)</h4>
+@Html.DisplayFor(model => model.HireDate.Month)/@Html.DisplayFor(model => model.HireDate.Day)/@Html.DisplayFor(model => model.HireDate.Year)</h3>
 @if(@Model.JoinEntities.Count == 0)
 {
   <p>This engineer isn't licensed to fix any machines yet.</p>

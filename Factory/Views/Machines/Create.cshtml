@@ -9,6 +9,8 @@
 {
   @Html.LabelFor(model => model.MachineName)
   @Html.TextBoxFor(model => model.MachineName)
+  @Html.LabelFor(model => model.SerialNumber)
+  @Html.TextBoxFor(model => model.SerialNumber)
   <input type="submit" value="Add New Machine" />
 }
 <p>@Html.ActionLink("Show Machines List", "Index")</p>
