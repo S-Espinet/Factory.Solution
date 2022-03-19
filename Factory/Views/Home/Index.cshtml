@@ -6,6 +6,25 @@
   <h1>Dr. SillyStringz's Factory</h1>
 </div>
 
+@using Factory.Models;
+@model Factory.Models.IndexDisplay
+
+<h4>Engineers</h4>
+@foreach(Engineer engineer in Model.Engineers)
+{
+  <ul>
+    <li>@Html.DisplayNameFor(model => engineer.EngineerName): @Html.DisplayFor(model => engineer.EngineerName)</li>
+  </ul>
+}
+
+<h4>Machines</h4>
+@foreach(Machine machine in Model.Machines)
+{
+  <ul>
+    <li>@Html.DisplayNameFor(model => machine.MachineName): @Html.DisplayFor(model => machine.MachineName)</li>
+  </ul>
+}
+
 <button class="btn-warning">@Html.ActionLink("Home", "Index", "Home")</button>
 <button class="btn-warning">@Html.ActionLink("See all Engineers", "Index", "Engineers")</button>
 <button class="btn-warning">@Html.ActionLink("Show all Machines", "Index", "Machines")</button>
