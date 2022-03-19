@@ -13,7 +13,7 @@
 @foreach(Engineer engineer in Model.Engineers)
 {
   <ul>
-    <li>@Html.DisplayNameFor(model => engineer.EngineerName): @Html.DisplayFor(model => engineer.EngineerName)</li>
+    <li>Name: @Html.ActionLink($"{engineer.EngineerName}:", "Details", "Engineers", new { id = engineer.EngineerId })</li>
   </ul>
 }
 
@@ -21,7 +21,7 @@
 @foreach(Machine machine in Model.Machines)
 {
   <ul>
-    <li>@Html.DisplayNameFor(model => machine.MachineName): @Html.DisplayFor(model => machine.MachineName)</li>
+    <li>Name: @Html.ActionLink($"{machine.MachineName}:", "Details", "Machines", new { id = machine.MachineId })</li>
   </ul>
 }
 
